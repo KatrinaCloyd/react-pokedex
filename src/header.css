@@ -1,0 +1,30 @@
+* {
+    box-sizing: border-box;
+}
+
+.header{
+    display: flex;
+    flex-direction: row;
+    background-color:lemonchiffon;
+}
+
+.headLeft{
+    align-items: center;
+    float: left;
+    width: 40%;
+    display: flex;
+    margin: 20px;
+}
+
+.headRight{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    float: left;
+    width: 60%;
+    padding: 20px;
+}
+
+.link{
+    padding: 10px;
+}

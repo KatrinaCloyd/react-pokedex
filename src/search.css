@@ -1,0 +1,19 @@
+.search-body{
+    background-color: lightblue;
+}
+.search-side{
+    padding: 20px;
+    float: left;
+    width: 30%;
+    border-right: solid 1px lightblue;
+    height: 800px;
+}
+.search-main{
+    padding: 20px;
+    float: left;
+    width: 70%;
+}
+
+button{
+    margin: 10px 0px;
+}
