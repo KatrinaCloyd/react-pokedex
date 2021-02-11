@@ -1,6 +1,6 @@
 ## Plan for React PokeDex
 
-![image info](plan.png)
+![image info](./public/plan.png)
 
 Plan of attack: 
 
