@@ -5,7 +5,7 @@ export default class SideBar extends Component {
         return (
             <div className='search-side'>
                 <p>Sort Results by:</p>
-                <select>
+                <select onChange={this.props.setSort}>
                     <option value="pokemon">Pokemon Name</option>
                     <option value="type_1">Type</option>
                     <option value="attack">Attack Strength</option>
