@@ -19,10 +19,10 @@ X Feed Poke Items dummy data to get page rendering correctly
 X Style poke items and list 
 X set initial state and import data.js
 X replace dummy datat on page with full data
-get sort working by name by default
-get other sorts working
-    -type 
-    -attack
-    -defense
-get category up/down change working
+X get sort working by name by default
+X get other sorts working
+    X-type 
+    X-attack
+    X-defense
+X get category up/down change working
 get keyword search working 

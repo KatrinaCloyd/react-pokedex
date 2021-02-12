@@ -17,7 +17,7 @@ export default class SideBar extends Component {
                     <option value="false">Descending</option>
                 </select>
                 <p>Enter Search:</p>
-                <input />
+                <input onChange={this.props.setSearch} />
                 <button>Search</button>
             </div>
         )

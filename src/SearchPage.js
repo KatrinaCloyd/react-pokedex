@@ -23,6 +23,13 @@ export default class SearchPage extends Component {
         })
     }
 
+    setSearch = (e) => {
+        this.setState({
+            search: e.target.value
+        })
+    }
+
+
     render() {
         const sortArray = (arr) => {
             if (this.state.ascend === 'true') {
@@ -41,14 +48,22 @@ export default class SearchPage extends Component {
                     arr.sort((a, b) => b[this.state.sortBy].localeCompare(a[this.state.sortBy]))
             return arr;
         }
+        const filterArray = (arr) => {
+            if (this.state.search) {
+                arr.pokemon.filter(poke => poke.pokemon.includes(this.state.search))
+                return arr;
+            } else
+                return arr;
+        }
 
-        const filteredPokeArr = sortArray(pokeArray);
+        const sortedPokeArr = sortArray(pokeArray);
+        const filteredArray = filterArray(sortedPokeArr);
 
         return (
             <div className='search-body'>
-                <SideBar setSort={this.setSort} setAscend={this.setAscend} />
+                <SideBar setSort={this.setSort} setAscend={this.setAscend} setSearch={this.setSearch} />
                 <div className='search-main'>
-                    <PokeList filteredPokeArr={filteredPokeArr} />
+                    <PokeList filteredPokeArr={filteredArray} />
                 </div>
             </div>
         )
