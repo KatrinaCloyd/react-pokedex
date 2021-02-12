@@ -25,8 +25,8 @@ export default class SearchPage extends Component {
 
     setSearch = (e) => {
         this.setState({
-            search: e.target.value
-        })
+            search: e.target.value,
+        });
     }
 
 
@@ -48,16 +48,18 @@ export default class SearchPage extends Component {
                     arr.sort((a, b) => b[this.state.sortBy].localeCompare(a[this.state.sortBy]))
             return arr;
         }
+
         const filterArray = (arr) => {
             if (this.state.search) {
-                arr.pokemon.filter(poke => poke.pokemon.includes(this.state.search))
-                return arr;
+                let newArr = arr.filter(poke => poke.pokebase.includes(this.state.search))
+                return newArr;
             } else
                 return arr;
         }
 
         const sortedPokeArr = sortArray(pokeArray);
         const filteredArray = filterArray(sortedPokeArr);
+        console.log(filteredArray);
 
         return (
             <div className='search-body'>
