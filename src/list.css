@@ -1,6 +1,6 @@
 .poke-list{
-    background-color: lightcoral;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    justify-content: center;
 }

@@ -1,17 +1,18 @@
 .search-body{
-    background-color: lightblue;
+    background-color: rgb(234, 244, 247);
 }
 .search-side{
     padding: 20px;
     float: left;
-    width: 30%;
+    width: 200px;
     border-right: solid 1px lightblue;
     height: 800px;
 }
 .search-main{
+    display: flex;
+    flex-direction: row;
     padding: 20px;
-    float: left;
-    width: 70%;
+    width: auto;
 }
 
 button{

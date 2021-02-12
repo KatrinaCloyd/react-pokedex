@@ -2,48 +2,14 @@ import React, { Component } from 'react';
 import './item.css';
 
 export default class PokeItem extends Component {
-    dummyPoke = {
-        '_id': '5cef3501ef6005a77cd4fd17',
-        'pokemon': 'bulbasaur',
-        'id': 1,
-        'species_id': 1,
-        'height': 7,
-        'weight': 69,
-        'base_experience': 64,
-        'type_1': 'grass',
-        'type_2': 'poison',
-        'attack': 49,
-        'defense': 49,
-        'hp': 45,
-        'special_attack': 65,
-        'special_defense': 65,
-        'speed': 45,
-        'ability_1': 'overgrow',
-        'ability_2': 'NA',
-        'ability_hidden': 'chlorophyll',
-        'color_1': '#78C850',
-        'color_2': '#A040A0',
-        'color_f': '#81A763',
-        'egg_group_1': 'monster',
-        'egg_group_2': 'plant',
-        'url_image': 'http://assets.pokemon.com/assets/cms2/img/pokedex/full/001.png',
-        'generation_id': 1,
-        'evolves_from_species_id': 'NA',
-        'evolution_chain_id': 1,
-        'shape_id': 8,
-        'shape': 'quadruped',
-        'pokebase': 'bulbasaur',
-        'pokedex': 'http://www.pokemon.com/us/pokedex/bulbasaur'
-    }
-
     render() {
         return (
             <div className='item-block'>
-                <img className='poke-img' alt='pokemon' src={this.dummyPoke.url_image} />
-                <div className='name'>Name: {this.dummyPoke.pokemon} </div>
-                <div className='info'>Type: {this.dummyPoke.type_1}</div>
-                <div className='info'>Attack Strength: {this.dummyPoke.attack}</div>
-                <div className='info'>Defense Strength: {this.dummyPoke.defense}</div>
+                <img className='poke-img' alt='pokemon' src={this.props.poke.url_image} />
+                <div className='name'>Name: {this.props.poke.pokemon} </div>
+                <div className='info'>Type: {this.props.poke.type_1}</div>
+                <div className='info'>Attack Strength: {this.props.poke.attack}</div>
+                <div className='info'>Defense Strength: {this.props.poke.defense}</div>
             </div>
         )
     }
