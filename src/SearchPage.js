@@ -8,7 +8,8 @@ export default class SearchPage extends Component {
     state = {
         sortBy: 'pokemon',
         ascend: 'true',
-        search: ''
+        search: '',
+        searchInput: ''
     }
 
     setSort = (e) => {
@@ -23,12 +24,18 @@ export default class SearchPage extends Component {
         })
     }
 
-    setSearch = (e) => {
+    setSearchInput = (e) => {
         this.setState({
-            search: e.target.value,
+            searchInput: e.target.value.toLowerCase(),
         });
     }
 
+    setSearch = (e) => {
+        this.setState({
+            search: this.state.searchInput,
+        });
+        e.preventDefault();
+    }
 
     render() {
         const sortArray = (arr) => {
@@ -59,11 +66,10 @@ export default class SearchPage extends Component {
 
         const sortedPokeArr = sortArray(pokeArray);
         const filteredArray = filterArray(sortedPokeArr);
-        console.log(filteredArray);
 
         return (
             <div className='search-body'>
-                <SideBar setSort={this.setSort} setAscend={this.setAscend} setSearch={this.setSearch} />
+                <SideBar setSort={this.setSort} setAscend={this.setAscend} setSearchInput={this.setSearchInput} setSearch={this.setSearch} />
                 <div className='search-main'>
                     <PokeList filteredPokeArr={filteredArray} />
                 </div>

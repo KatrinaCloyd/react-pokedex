@@ -17,9 +17,13 @@ export default class SideBar extends Component {
                     <option value="false">Descending</option>
                 </select>
                 <p>Enter Search:</p>
-                <input onChange={this.props.setSearch} />
-                <button>Search</button>
+                <form>
+                    <input onChange={this.props.setSearchInput} />
+                    <button onClick={this.props.setSearch}>Search</button>
+                </form>
             </div>
         )
     }
 }
+
+// need to stop sumbit button from refreshing page 
