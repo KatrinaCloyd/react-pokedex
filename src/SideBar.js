@@ -18,11 +18,12 @@ export default class SideBar extends Component {
                     <option value="true">Ascending</option>
                     <option value="false">Descending</option>
                 </select>
-                <p>Enter Search:</p>
-                <form>
-                    <input onChange={this.props.setSearchInput} />
-                    <button onClick={this.props.setSearch}>Search</button>
-                </form>
+                <div className='search'><p>Search Names:</p>
+                    <form>
+                        <input onChange={this.props.setSearchInput} />
+                        <button onClick={this.props.setSearch}>Search</button>
+                    </form>
+                </div>
             </div>
         )
     }

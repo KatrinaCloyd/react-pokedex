@@ -23,3 +23,7 @@
 button{
     margin: 10px 0px;
 }
+.search{
+    border-top: solid 1px lightblue;
+    margin-top: 20px;
+}
