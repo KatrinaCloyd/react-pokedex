@@ -17,14 +17,28 @@ export default class SearchPage extends Component {
         })
     }
 
+    setAscend = (e) => {
+        this.setState({
+            ascend: e.target.value
+        })
+    }
 
     render() {
         const sortArray = (arr) => {
-            if (this.state.sortBy === "attack" || this.state.sortBy === "defense") {
-                arr.sort((a, b) => a[this.state.sortBy] - b[this.state.sortBy])
+            if (this.state.ascend === 'true') {
+                if (this.state.sortBy === "attack" || this.state.sortBy === "defense") {
+                    arr.sort((a, b) => a[this.state.sortBy] - b[this.state.sortBy])
+                    return arr;
+                } else
+                    arr.sort((a, b) => a[this.state.sortBy].localeCompare(b[this.state.sortBy]))
                 return arr;
-            } else
-                arr.sort((a, b) => a[this.state.sortBy].localeCompare(b[this.state.sortBy]))
+            }
+            else
+                if (this.state.sortBy === "attack" || this.state.sortBy === "defense") {
+                    arr.sort((a, b) => b[this.state.sortBy] - a[this.state.sortBy])
+                    return arr;
+                } else
+                    arr.sort((a, b) => b[this.state.sortBy].localeCompare(a[this.state.sortBy]))
             return arr;
         }
 
@@ -32,7 +46,7 @@ export default class SearchPage extends Component {
 
         return (
             <div className='search-body'>
-                <SideBar setSort={this.setSort} />
+                <SideBar setSort={this.setSort} setAscend={this.setAscend} />
                 <div className='search-main'>
                     <PokeList filteredPokeArr={filteredPokeArr} />
                 </div>

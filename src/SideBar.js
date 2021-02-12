@@ -10,11 +10,11 @@ export default class SideBar extends Component {
                     <option value="type_1">Type</option>
                     <option value="attack">Attack Strength</option>
                     <option value="defense">Defence Strength</option>
-                </select>
+                </select >
                 <p>Sort Direction:</p>
-                <select>
-                    <option value="ascending">Ascending</option>
-                    <option value="desending">Descending</option>
+                <select onChange={this.props.setAscend}>
+                    <option value="true">Ascending</option>
+                    <option value="false">Descending</option>
                 </select>
                 <p>Enter Search:</p>
                 <input />
