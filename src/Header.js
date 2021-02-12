@@ -7,7 +7,7 @@ export default withRouter(class Header extends Component {
         return (
             <div className='header'>
                 <div className='headLeft'>
-                    Pokedex Sorting Page
+                    <h3>Pokedex Sorting Page</h3>
                 </div>
                 <div className='headRight'>
                     <NavLink exact activeClassName="selected" to="/" className='link'>

@@ -1,13 +1,19 @@
 .item-block{
     width: 300px;
-    height:350px;
+    height: 390px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    border: solid 2px lightcoral;
+    border: solid 1.5px steelblue;
     margin: 10px;
+    border-radius: 5px;
 }
 
 .poke-img{
     width: 250px;
+}
+
+.name{
+    color:steelblue;
+    font-weight: bold;
 }

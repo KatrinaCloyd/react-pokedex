@@ -8,6 +8,8 @@ export default class SideBar extends Component {
                 <select onChange={this.props.setSort}>
                     <option value="pokemon">Pokemon Name</option>
                     <option value="type_1">Type</option>
+                    <option value="ability_1">Ability</option>
+                    <option value="shape">Shape</option>
                     <option value="attack">Attack Strength</option>
                     <option value="defense">Defence Strength</option>
                 </select >
@@ -25,5 +27,3 @@ export default class SideBar extends Component {
         )
     }
 }
-
-// need to stop sumbit button from refreshing page 
