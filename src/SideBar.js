@@ -15,13 +15,14 @@ export default class SideBar extends Component {
                 </select >
                 <p>Sort Direction:</p>
                 <select onChange={this.props.setAscend}>
-                    <option value="true">Ascending</option>
-                    <option value="false">Descending</option>
+                    <option value="asc">Ascending</option>
+                    <option value="desc">Descending</option>
                 </select>
-                <div className='search'><p>Search Names:</p>
+                <div className='search' value={this.props.currentSearch}><p>Search Names:</p>
                     <form>
                         <input onChange={this.props.setSearchInput} />
                         <button onClick={this.props.setSearch}>Search</button>
+                        <button onClick={this.props.resetSearch}>Reset</button>
                     </form>
                 </div>
             </div>
