@@ -21,7 +21,7 @@ export default class SearchPage extends Component {
 
     fetchPokemon = async () => {
         this.setState({ loading: true });
-        const data = await request.get(`https://pokedex-alchemy.herokuapp.com/api/pokedex?page=1&perPage=50&sort=${this.state.sortBy}&direction=${this.state.ascend}&pokemon=${this.state.search}`);
+        const data = await request.get(`https://pokedex-alchemy.herokuapp.com/api/pokedex?page=1&perPage=20&sort=${this.state.sortBy}&direction=${this.state.ascend}&pokemon=${this.state.search}`);
 
         this.setState({
             items: data.body.results,

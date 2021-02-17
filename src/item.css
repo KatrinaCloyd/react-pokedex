@@ -17,3 +17,8 @@
     color:steelblue;
     font-weight: bold;
 }
+
+a:link, a:visited{
+    color: steelblue;
+    text-decoration: none;
+  }
