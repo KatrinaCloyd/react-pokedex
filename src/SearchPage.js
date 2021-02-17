@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import request from 'superagent';
 import SideBar from './SideBar.js';
 import PokeList from './PokeList.js';
+import Loading from './Loading.js';
 import './search.css';
 
 export default class SearchPage extends Component {
@@ -10,7 +11,8 @@ export default class SearchPage extends Component {
         sortBy: 'pokemon',
         ascend: 'asc',
         search: '',
-        searchInput: ''
+        searchInput: '',
+        loading: false
     }
 
     componentDidMount = async () => {
@@ -18,10 +20,12 @@ export default class SearchPage extends Component {
     }
 
     fetchPokemon = async () => {
+        this.setState({ loading: true });
         const data = await request.get(`https://pokedex-alchemy.herokuapp.com/api/pokedex?page=1&perPage=50&sort=${this.state.sortBy}&direction=${this.state.ascend}&pokemon=${this.state.search}`);
 
         this.setState({
             items: data.body.results,
+            loading: false
         });
     }
 
@@ -63,40 +67,14 @@ export default class SearchPage extends Component {
     }
 
     render() {
-        // const sortArray = (arr) => {
-        //     if (this.state.ascend === 'asc') {
-        //         if (this.state.sortBy === "attack" || this.state.sortBy === "defense") {
-        //             arr.sort((a, b) => a[this.state.sortBy] - b[this.state.sortBy])
-        //             return arr;
-        //         } else
-        //             arr.sort((a, b) => a[this.state.sortBy].localeCompare(b[this.state.sortBy]))
-        //         return arr;
-        //     }
-        //     else
-        //         if (this.state.sortBy === "attack" || this.state.sortBy === "defense") {
-        //             arr.sort((a, b) => b[this.state.sortBy] - a[this.state.sortBy])
-        //             return arr;
-        //         } else
-        //             arr.sort((a, b) => b[this.state.sortBy].localeCompare(a[this.state.sortBy]))
-        //     return arr;
-        // }
-
-        // const filterArray = (arr) => {
-        //     if (this.state.search) {
-        //         let newArr = arr.filter(poke => poke.pokebase.includes(this.state.search))
-        //         return newArr;
-        //     } else
-        //         return arr;
-        // }
-
-        // const sortedPokeArr = sortArray(this.state.items);
         const filteredArray = this.state.items;
 
         return (
             <div className='search-body'>
                 <SideBar setSort={this.setSort} setAscend={this.setAscend} setSearchInput={this.setSearchInput} setSearch={this.setSearch} resetSearch={this.resetSearch} currentSearch={this.state.search} />
                 <div className='search-main'>
-                    <PokeList filteredPokeArr={filteredArray} />
+                    {this.state.loading ? <Loading /> : <PokeList filteredPokeArr={filteredArray} />
+                    }
                 </div>
             </div>
         )
