@@ -1,0 +1,30 @@
+.search-body{
+    position: absolute;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+}
+.search-side{
+    position: absolute;
+    padding: 20px;
+    width: 230px;
+    height: 100%;
+    background-color: steelblue;
+}
+.search-main{
+    margin-left: 230px;
+    float: left;
+    display: flex;
+    flex-direction: row;
+    padding: 20px;
+    width: auto;
+}
+
+button{
+    margin: 10px 0px;
+    margin-right: 10px;
+}
+.search{
+    border-top: solid 1px lightblue;
+    margin-top: 20px;
+}

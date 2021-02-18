@@ -1,0 +1,29 @@
+.detail-block{
+    width: 280px;
+    height: 420px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: solid 1.5px steelblue;
+    margin: 10px;
+    border-radius: 5px;
+    box-shadow: 3px 3px 15px steelblue;
+    color: steelblue;
+}
+
+.detail-body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.detail-img{
+    width: 400px;
+}
+
+.detail-name{
+    color:rgb(37, 76, 107);
+    font-weight: bold;
+    padding-top: 10px ;
+    font-size: 1.2em;
+}

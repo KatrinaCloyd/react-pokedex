@@ -1,0 +1,40 @@
+* {
+    box-sizing: border-box;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.header{
+    display: flex;
+    flex-direction: row;
+    background-color:lemonchiffon;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    color:forestgreen;
+    border-bottom: solid 1.5px steelblue;
+}
+
+.headLeft{
+    align-items: center;
+    float: left;
+    width: 50%;
+    display: flex;
+    margin: 20px;
+}
+
+.headRight{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    float: left;
+    width:50%;
+    padding: 20px;
+}
+
+.link{
+    padding: 10px;
+    color: steelblue;
+}
+h3{
+    font-size: 25px;
+    color: steelblue;
+}
