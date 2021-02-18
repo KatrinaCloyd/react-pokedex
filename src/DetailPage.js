@@ -31,11 +31,11 @@ export default class DetailPage extends Component {
                             <div className='detail-name'>Name: {this.state.selectedItem.pokemon} </div>
                             <img className='detail-img' alt='pokemon' src={this.state.selectedItem.url_image} />
                             <div>Type: {this.state.selectedItem.type_1}</div>
-                            <div>Shape: {this.state.selectedItem.shape}</div>
+                            <div>Shape: {this.state.selectedItem.shape === 'NA' ? 'Unspecified' : this.state.selectedItem.shape}</div>
                             <div>Ability: {this.state.selectedItem.ability_1}</div>
                             <div>Attack Strength: {this.state.selectedItem.attack}</div>
                             <div>Defense Strength: {this.state.selectedItem.defense}</div>
-                            <div>Hidden Ability: {this.state.selectedItem.ability_hidden}</div>
+                            <div>Hidden Ability: {this.state.selectedItem.ability_hidden === 'NA' ? 'None' : this.state.selectedItem.ability_hidden}</div>
                             <div>Egg Group: {this.state.selectedItem.egg_group_1}</div>
                             <div>Speed: {this.state.selectedItem.speed} mph</div>
                         </div>}

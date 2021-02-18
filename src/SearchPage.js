@@ -12,7 +12,8 @@ export default class SearchPage extends Component {
         ascend: 'asc',
         search: '',
         searchInput: '',
-        loading: false
+        loading: false,
+        currentPage: 1,
     }
 
     componentDidMount = async () => {
@@ -21,11 +22,12 @@ export default class SearchPage extends Component {
 
     fetchPokemon = async () => {
         this.setState({ loading: true });
-        const data = await request.get(`https://pokedex-alchemy.herokuapp.com/api/pokedex?page=1&perPage=20&sort=${this.state.sortBy}&direction=${this.state.ascend}&pokemon=${this.state.search}`);
+        const data = await request.get(`https://pokedex-alchemy.herokuapp.com/api/pokedex?page=${this.state.currentPage}&perPage=20&sort=${this.state.sortBy}&direction=${this.state.ascend}&pokemon=${this.state.search}`);
 
         this.setState({
             items: data.body.results,
-            loading: false
+            loading: false,
+            numOfPages: Math.ceil(data.body.count / 20),
         });
     }
 
@@ -52,6 +54,7 @@ export default class SearchPage extends Component {
     setSearch = async (e) => {
         await this.setState({
             search: this.state.searchInput,
+            currentPage: 1,
         });
         e.preventDefault();
         await this.fetchPokemon()
@@ -66,12 +69,26 @@ export default class SearchPage extends Component {
         await this.fetchPokemon()
     }
 
+    increasePage = async (e) => {
+        await this.setState({
+            currentPage: this.state.currentPage + 1,
+        });
+        await this.fetchPokemon()
+    }
+
+    decreasePage = async (e) => {
+        await this.setState({
+            currentPage: this.state.currentPage - 1,
+        });
+        await this.fetchPokemon()
+    }
+
     render() {
         const filteredArray = this.state.items;
 
         return (
             <div className='search-body'>
-                <SideBar setSort={this.setSort} setAscend={this.setAscend} setSearchInput={this.setSearchInput} setSearch={this.setSearch} resetSearch={this.resetSearch} currentSearch={this.state.search} />
+                <SideBar setSort={this.setSort} setAscend={this.setAscend} setSearchInput={this.setSearchInput} setSearch={this.setSearch} resetSearch={this.resetSearch} currentSearch={this.state.search} currentPage={this.state.currentPage} increasePage={this.increasePage} decreasePage={this.decreasePage} numOfPages={this.state.numOfPages} />
                 <div className='search-main'>
                     {this.state.loading ? <Loading /> : <PokeList filteredPokeArr={filteredArray} />
                     }

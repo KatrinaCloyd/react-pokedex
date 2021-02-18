@@ -25,6 +25,11 @@ export default class SideBar extends Component {
                         <button onClick={this.props.resetSearch}>Reset</button>
                     </form>
                 </div>
+                <div className='search'>
+                    <p>Current Page: {this.props.currentPage}</p>
+                    <button onClick={this.props.decreasePage} disabled={this.props.currentPage === 1}>Last Page</button>
+                    <button onClick={this.props.increasePage} disabled={this.props.numOfPages === this.props.currentPage}>Next Page</button>
+                </div>
             </div>
         )
     }
