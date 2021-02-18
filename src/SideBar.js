@@ -26,7 +26,7 @@ export default class SideBar extends Component {
                     </form>
                 </div>
                 <div className='search'>
-                    <p>Current Page: {this.props.currentPage}</p>
+                    <p>Current Page: {this.props.currentPage} of {this.props.numOfPages}</p>
                     <button onClick={this.props.decreasePage} disabled={this.props.currentPage === 1}>Last Page</button>
                     <button onClick={this.props.increasePage} disabled={this.props.numOfPages === this.props.currentPage}>Next Page</button>
                 </div>
